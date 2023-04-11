@@ -1,3 +1,145 @@
-body h1{
-    color: aqua;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: sans-serif;
+  }
+
+html{
+    font-family: sans-serif;
+    line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
 }
+
+body{
+    text-align: center;
+    margin: 0 auto;
+    background: #2e1c50 url(/images/headerBg.jpg) no-repeat center top;
+}
+
+.header
+{
+    color: #fff;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; 
+} 
+
+.header-container
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.uwblogo
+{
+    display: block;
+    width: 126px;
+    height: 81px;
+    margin: 0 14px 0 2px;
+    background-repeat: no-repeat;
+    background-position: 0 -7px;
+}
+
+#main-menus{
+    color: #fff;
+    position: relative;
+    z-index: 5;
+    display: block;
+}
+
+.menus-nav {
+    list-style-type: none;
+    margin: 0px;
+    padding: 5px;
+  }
+  .menus-nav a{
+    color: #fff;
+    font-weight: bold;
+  }
+
+  .menus-item {
+    position: relative;
+    display: inline-block;
+    padding: 15px;
+    cursor: pointer;
+  }
+
+  .menus-item:not(:first-child)::before {
+    content: " / ";
+    position: absolute;
+    left: -10px;
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    display: none;
+  }
+  
+  .menus-item:hover .dropdown {
+    display: block;
+    background-color: #4a2e8349;
+    border-radius: 5px;
+    list-style: none;
+  }
+  
+  .dropdown li {
+    padding: 10px;
+  }
+  
+  .dropdown a {
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px;
+  }
+  
+  .bx-chevron-down {
+    margin-left: 5px;
+  }
+
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+  }
+  
+
+form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #4b2e83;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; 
+    cursor: pointer;
+
+  }
+  
+  
+  form.example button:hover {
+    background: #4b2e83;
+  }
+
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
