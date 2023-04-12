@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bitter&family=Julee&family=Kanit:wght@900&family=Open+Sans&family=Roboto+Condensed:wght@300&family=Roboto+Mono:wght@300&family=Roboto:wght@100&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+html{
+    font-family: sans-serif;
+    line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+}
+
+body{
+    text-align: center;
+    margin: 0 auto;
+    height: 100%;
+    background: url(https://uwb-prodkcms-endpnt.azureedge.net/edu-v2/_12.00/_images/pageBgMain.jpg) repeat-x center top #fdfcf9 !important;
+    overflow: visible;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-width: 1030px;
+    height: 100%;
+}
+
+.header
+{
+    color: #fff;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 100; 
+    width: 998px;
+    margin: 0 auto;
+} 
+
+.header-container
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.uwblogo
+{
+    display: block;
+    width: 126px;
+    height: 81px;
+    margin: 0 14px 0 2px;
+    background-repeat: no-repeat;
+    background-position: 0 -7px;
+}
+
+.uwblogo:hover {
+  background-image: url(../images/w-logo-sprite\ \(gold\).png);
+  background-position: 0 -10px;
+}
+
+#main-menus{
+    color: #fff;
+    position: relative;
+    z-index: 5;
+    display: block;
+}
+
+.menus-nav {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .menus-nav a{
+    color: #fff;
+    font-weight: bold;
+  }
+
+  .menus-item.active, 
+  .menus-item:hover,
+  .menus-item a.active, 
+  .menus-item a:hover{
+    color: #d3a20293;
+  }
+
+  .menus-item {
+    position: relative;
+    display: inline-block;
+    padding: 15px;
+    cursor: pointer;
+  }
+
+  .menus-item:not(:first-child)::before {
+    content: " / ";
+    position: absolute;
+    left: -10px;
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    display: none;
+  }
+  
+  .menus-item:hover .dropdown {
+    display: block;
+    background-color: #6846ada4;
+    border-radius: 5px;
+    padding: 4px;
+    list-style: none;
+  }
+  
+  .menus-item:hover .dropdown a:hover{
+    color: black;
+  }
+
+  .dropdown li {
+    padding: 10px;
+  }
+  
+  .dropdown a {
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px;
+  }
+  
+  .bx-chevron-down {
+    margin-left: 5px;
+  }
+
+  .container{
+    background: #fff;
+    border-radius: 5px;
+    border: 0;
+    padding: 10px;
+    width: 998px;
+    margin: 0 auto;
+    display: block;
+    align-items: flex-start;
+  }
+
+  .container-background
+  {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .container-background h3{
+    color: #4b2e84;
+    line-height: 1.5;
+    text-align: left;
+  }
+
+  .container-background p{
+    margin: 5px;
+    padding: 0 0 1em 0;
+    text-align: left;
+    line-height: 1.5;
+  }
+
+  .container-education-work{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .container-education-work p{
+    text-align: left;
+    line-height: 1.5;
+  }
+
+  .container-education-work ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    text-align: left;
+  }
+
+  .container-award p
+  {
+    line-height: 2;
+    text-align: left;
+    padding-left: 140px;
+  }
+
+  .container-services p
+  {
+    line-height: 2;
+    text-align: left;
+    padding-left: 140px;
+  }
+
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+    border-radius: 7px;
+  }
+  
+
+form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #d3a20293;
+    border-radius: 7px;
+    border-color: #d3a20293;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; 
+    cursor: pointer;
+
+  }
+  
+
+  form.example button:hover {
+    background: #D3A302;
+  }
+
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
