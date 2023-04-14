@@ -5,4 +5,4 @@ def index(request):
     return HttpResponse('Hello Students')
 
 def htmlrender(request):
-    return render(request, 'template.html')
+    return render(request, 'template-kush.html')
