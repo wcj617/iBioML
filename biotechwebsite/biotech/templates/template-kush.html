@@ -2,268 +2,24 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>First Navigation Bar</title>
-    <style>
-        /* First navigation bar */
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bitter&family=Encode+Sans+Condensed:wght@100;200;300&family=Julee&family=Kanit:wght@900&family=Open+Sans&family=Roboto+Condensed:wght@300&family=Roboto+Mono:wght@300&family=Roboto:wght@100&display=swap');
-
-        body {
-            margin: 0;
-            padding: 0;
-            height: calc(100vh - 100px);
-            /* background-image: url('https://www.washington.edu/static/home/wp-content/themes/boundless/assets/images/quad.jpg');
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover; */
-        }
-
-        @font-face {
-            font-family: 'Castellar';
-            src: url('path/to/castellar.woff') format('woff');
-        }
-
-        h1 {
-            margin-top: 4%;
-            font-family: 'Castellar', serif;
-            font-size: 50px;
-            text-align: center;
-            color: #4b2e83;
-
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("https://www.washington.edu/static/home/wp-content/themes/boundless/assets/images/quad.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
-            z-index: -1;
-            opacity: 0.5;
-        }
-
-        main {
-            flex-grow: 1;
-        }
-
-        .navbar {
-            margin-top: 0;
-            background-color: #4b2e83;
-            display: flex;
-            align-items: center;
-            height: 90px;
-            padding: 10px;
-            justify-content: space-between;
-        }
-
-        .navbar .wlogo {
-            /* height: 50px; */
-            margin-left: 200px;
-            margin-right: 10px;
-            margin-bottom: 10px;
-        }
-
-        .navbar .uwblogo {
-            /* vertical-align: middle; */
-            /* margin-bottom: 20px; */
-            padding-bottom: 20px;
-        }
-
-        .navbar a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 16px;
-            padding: 10px;
-        }
-
-        .navbar .right {
-            display: flex;
-            align-items: center;
-        }
-
-        .navbar .search-icon {
-            color: #fff;
-            font-size: 24px;
-            margin-left: 10px;
-        }
-
-        .circle {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            background-color: rgba(204, 204, 204, 0);
-            height: 50px;
-            width: 50px;
-            border: 3px solid #ccc;
-            margin-right: 20px;
-        }
-
-        .circle i {
-            font-size: 25px;
-            color: white;
-            /* font-weight: 100; */
-        }
-
-        .circle i:hover {
-            color: #a18132;
-            /* border: 3px solid #a18132; */
-        }
-
-        .circle :hover {
-            border-color: #a18132;
-        }
-
-        .navbar a {
-            margin-right: 200px;
-            font-family: "Encode Sans Compressed", sans-serif;
-            color: #fff;
-            font-size: 20px;
-            font-weight: 600;
-            position: relative;
-            float: right;
-            padding: 8px 25px 10px 0;
-            letter-spacing: .01em;
-        }
-
-        .navbar a:hover {
-            color: #a18132;
-        }
-
-        /* Second navigation bar */
-
-        #main-menus {
-            color: #4b2e83;
-            background-color: #fff;
-            width: 100%;
-            padding: 0;
-            border-bottom: 1px solid rgb(224, 224, 224);
-        }
-
-        .menus-containers {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding-left: 18%;
-        }
-
-        .menus-nav {
-            list-style-type: none;
-            margin: 0;
-            margin-left: -18%;
-
-        }
-
-        .menus-nav a {
-            color: #4b2e83;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 17.65px;
-            background-color: transparent;
-            font-family: "Encode Sans Compressed", sans-serif;
-        }
-
-        .menus-item {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            text-align: left;
-            padding: 1.4rem 2rem 1.4rem 0.6rem;
-            padding: 30px;
-        }
-
-        /* .menus-item::after {
-            content: "\f107";
-            margin-left: 10px;
-            font-family: "FontAwesome";
-            position: absolute;
-            color: #4b2e83;
-            font-weight: bold;
-        } */
-
-        .menus-item:not(:first-child)::before {
-            content: " / ";
-            position: absolute;
-            left: -10px;
-            padding-left: 5px;
-        }
-
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            z-index: 1;
-            display: none;
-            border-top: 0.2rem solid #4b2e83;
-        }
-
-        .menus-item:hover .dropdown {
-            display: block;
-            background-color: #fff;
-            /* border-radius: 5px; */
-            list-style: none;
-            padding: 10px;
-            /* background: none; */
-        }
-
-        .menus-item:hover .dropdown a {
-            color: rgb(175, 175, 175);
-            font-weight: 500;
-            font-size: 14px;
-        }
-
-        .menus-item:hover .dropdown:hover a:hover {
-            color: #4b2e83;
-        }
-
-        .menus-item:hover .dropdown a:hover {
-            /* background-color: #6e68681a;
-            transition: all 0.3s ease; */
-            color: #4b2e83;
-        }
-
-        .dropdown li {
-            padding: 10px;
-            border-bottom: 1px solid rgba(128, 128, 128, 0.13);
-        }
-
-        .dropdown a {
-            display: block;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 5px;
-        }
-
-        .menus-item:hover a {
-            color: #85754d;
-        }
-
-        .menus-containers .menus-nav .menus-item i {
-            margin-left: 10px;
-            color: #4b2e83;
-        }
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>iBioML | University of Washington Bothell</title>
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
 </head>
 
 <body>
-
-    <!-- First navigation bar -->
     <div class="navbar">
         <div>
-            <img src="../templates/images/w-logo-sprite.png" class="wlogo">
-            <img src="../templates/images/BrandLogoHeader-UWB-white.png" class="uwblogo">
+            <img src="./images/w-logo-sprite.png" class="wlogo">
+            <img src="./images/BrandLogoHeader-UWB-white.png" class="uwblogo">
         </div>
         <div class="right">
             <div class="circle">
                 <i class="fa fa-search"></i>
             </div>
             <a href="#">Login</a>
-            <!-- <i class='bx bx-search search-icon'></i> -->
         </div>
     </div>
 
@@ -290,8 +46,8 @@
                 <li class="menus-item"><a href="#">PEOPLE</a></i>
                     <i class="fa fa-arrow-down"></i>
                     <ul class="dropdown">
-                        <li><a href="html/core-faculty.html">Core Faculty</a></li>
-                        <li><a href="html/people-collaborator.html">Collaborator</a></li>
+                        <li><a href="./html/core-faculty.html">Core Faculty</a></li>
+                        <li><a href=".html/people-collaborator.html">Collaborator</a></li>
                     </ul>
                 </li>
 
@@ -299,93 +55,11 @@
             </ul>
         </div>
     </nav>
-    <h1>B I O T E C H N O L O G Y</h1>
+    <h1>B I O I N F O R M A T I C S</h1>
     <div style="height: 100vh;">
     </div>
 
     <footer>
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-
-            }
-
-            footer {
-                position: relative;
-                width: 100%;
-                bottom: 0;
-                background: url(../templates/images/footer.jpg) center bottom;
-                background-color: #4b2e83;
-                height: auto;
-                min-height: 400px;
-                width: 100vw;
-                font-family: "Open Sans";
-                padding-top: 40px;
-                color: #fff;
-                background-size: cover;
-            }
-
-            footer img {
-                margin-left: 2%;
-            }
-
-            .footer-content {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-content h3 {
-                font-size: 1.8rem;
-                font-weight: 400;
-                text-transform: capitalize;
-                line-height: 3rem;
-            }
-
-            .socials {
-                list-style: none;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 1rem 0 3rem 0;
-                text-align: center;
-            }
-
-            .socials li {
-                margin: 0 10px;
-            }
-
-            .socials a {
-                text-decoration: none;
-                color: #fff;
-
-            }
-
-            .socials a i {
-                font-size: 1.1rem;
-                transition: color .4s ease;
-            }
-
-            .socials a:hover i {
-                color: rgb(225, 0, 255);
-            }
-
-            .footer-bottom p {
-                font-size: 14px;
-                word-spacing: 2px;
-                text-transform: capitalize;
-            }
-
-            .footer-bottom span {
-                text-transform: uppercase;
-                opacity: 0.4;
-                font-weight: 200;
-            }
-        </style>
         <div class="footer-content">
             <img class="move-right" src="../templates/images/BrandLogoHeader-UWB-white.png" alt="logo">
             <ul class="socials">
@@ -393,7 +67,8 @@
                 <li><a href="https://twitter.com/UWBothell%22%3E%22%3E"><i class="fa fa-twitter"></i></a></li>
                 <li><a href="https://www.linkedin.com/school/university-of-washington-bothell/%22%3E%22%3E">
                         <i class="fa fa-linkedin"></i></a></li>
-                <li><a href="https://www.youtube.com/user/uwbothell%22%3E%22%3E"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="https://www.youtube.com/user/uwbothell%22%3E%22%3E"><i class="fa fa-youtube"></i></a>
+                </li>
                 <li><a href="https://www.instagram.com/uw_bothell/%22%3E%22%3E"><i class="fa fa-instagram"></i></a>
                 </li>
             </ul>
