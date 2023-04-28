@@ -6,78 +6,101 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <title>iBioML | University of Washington Bothell</title>
-    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '../static/biotech/index.css' %}">
 </head>
 
 <body>
-    <div class="navbar">
-        <div>
-            <img src="./images/w-logo-sprite.png" class="wlogo">
-            <img src="./images/BrandLogoHeader-UWB-white.png" class="uwblogo">
-        </div>
-        <div class="right">
-            <div class="circle">
-                <i class="fa fa-search"></i>
-            </div>
-            <a href="#">Login</a>
-        </div>
-    </div>
 
-    <nav class="main-menus" id="main-menus">
-        <div class="menus-containers">
-            <ul class="menus-nav">
-                <li class="menus-item"><a href="#">ABOUT</a>
-                    <i class="fa fa-arrow-down"></i>
+    {% include 'header/header.html' %}
 
-
-                    <ul class="dropdown">
-                        <li><a href="../templates/html/contact/contact-kush.html">Contact</a></li>
-                        <li><a href="#">Direction</a></li>
-                        <li><a href="#">Mission</a></li>
-                    </ul>
-                </li>
-                <li class="menus-item"><a href="#">RESEARCH</a>
-                    <i class="fa fa-arrow-down"></i>
-                    <ul class="dropdown">
-                        <li><a href="">Projects</a></li>
-                    </ul>
-                </li>
-
-                <li class="menus-item"><a href="#">PEOPLE</a></i>
-                    <i class="fa fa-arrow-down"></i>
-                    <ul class="dropdown">
-                        <li><a href="./html/core-faculty.html">Core Faculty</a></li>
-                        <li><a href=".html/people-collaborator.html">Collaborator</a></li>
-                    </ul>
-                </li>
-
-                </li>
-            </ul>
-        </div>
-    </nav>
     <h1>B I O I N F O R M A T I C S</h1>
-    <div style="height: 100vh;">
+
+    <section class="homecontent">
+        <h2>{{ content.title }}</h2><br><br>
+        {% for paragraph in content.paragraphs %}
+        <p>{{ paragraph }}</p><br><br>
+        {% endfor %}
+    </section>
+    <br>
+    <section class="purple-section">
+        <div class="text-container">
+            <h3>iBioML Projects</h3>
+            <hr>
+            <p>
+                Our main research area is pattern recognition in bioinformatics, especially, biological motif analysis.
+                We developed various bioinformatics tools online.
+            </p>
+
+        </div>
+
+        <div class="image-container">
+            <img src="../static/biotech/images/projects.jpeg">
+            <button class="view-program-btn" onclick="viewProjects()"><span class="button-text">VIEW
+                    PROJECTS</span></button>
+        </div>
+        <script>
+            function viewProjects() {
+                window.location.href = 'projects/'
+            }
+        </script>
+    </section>
+    <br><br><br>
+    <!-- <section class="videolink"> -->
+    <h2>Watch Our Video To Learn How To Surf On This Website. </h2>
+    <!-- <p style="margin-top: 5%;">Watch the video to learn to surf through the website</p> -->
+    <!-- <iframe width="800" height="450" src="https://www.youtube.com/embed/qEVUtrk8_B4" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </iframe> -->
+    <br><br>
+    <div class="button-container">
+        <button class="button-50" role="button"
+            onclick="window.open('https://www.youtube.com/watch?v=qEVUtrk8_B4', '_blank');" target="_blank">
+            <span class="button-text">WATCH VIDEO</span>
+        </button>
+
+
     </div>
 
-    <footer>
-        <div class="footer-content">
-            <img class="move-right" src="../templates/images/BrandLogoHeader-UWB-white.png" alt="logo">
-            <ul class="socials">
-                <li><a href="https://www.facebook.com/uwbothell%22%3E%22%3E"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="https://twitter.com/UWBothell%22%3E%22%3E"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="https://www.linkedin.com/school/university-of-washington-bothell/%22%3E%22%3E">
-                        <i class="fa fa-linkedin"></i></a></li>
-                <li><a href="https://www.youtube.com/user/uwbothell%22%3E%22%3E"><i class="fa fa-youtube"></i></a>
-                </li>
-                <li><a href="https://www.instagram.com/uw_bothell/%22%3E%22%3E"><i class="fa fa-instagram"></i></a>
-                </li>
-            </ul>
-            <div class="footer-bottom">
-                <p>&copy; Universiy of Washington | Bothell, WA</p>
-            </div>
-        </div>
-    </footer>
+    <style>
+        .button-container {
+            text-align: center;
+        }
 
+        .button-50 {
+            appearance: button;
+            background-color: transparent;
+            background-image: none;
+            border: 1px solid #000;
+            box-shadow: transparent 4px 4px 0 0, #000 4px 4px 0 1px;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            font-family: ITCAvantGardeStd-Bk, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            transform: skewX(-25deg);
+        }
+
+        .button-50:hover {
+            text-decoration: none;
+            background-color: #fff;
+            color: #4b2e83;
+        }
+
+        @media (min-width: 768px) {
+            .button-50 {
+                padding: 12px 50px;
+            }
+        }
+    </style>
+    <br><br><br><br>
+
+    {% include 'footer/footer.html' %}
 </body>
 
 </html>

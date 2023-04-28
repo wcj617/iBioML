@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>iBioML Contact Us | University of Washington Bothell</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="../../static/biotech/index.css">
+</head>
+
+<body>
+
+    <!-- First navigation bar -->
+    {% include 'header/header.html' %}
+
+    <style>
+        body {
+            font-family: "Encode Sans Compressed", sans-serif;
+            font-size: 16px;
+            color: #444;
+        }
+
+        .contact-item {
+            margin-top: 3%;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            margin-left: 20%;
+            font-size: 20px;
+        }
+
+        .contact-icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        body p {
+            margin-top: 2%;
+        }
+
+        .contact-item i {
+            color: #4b2e83;
+        }
+
+        .contact-label {
+            font-weight: bold;
+        }
+
+        p {
+            margin-left: 20%;
+            font-family: "Encode Sans Compressed", sans-serif;
+            font-size: 20px;
+        }
+    </style>
+
+    <h1>CONTACT US</h1>
+
+    <div class="contact-item">
+        <i class="fas fa-map-marker-alt contact-icon"></i>
+        <div>
+            <div class="contact-label">Mailing Address</div>
+            <div>University of Washington Bothell</div>
+            <div>18115 Campus Way NE</div>
+            <div>Bothell, WA 98011</div>
+        </div>
+    </div>
+
+    <div class="contact-item">
+        <i class="fas fa-phone contact-icon"></i>
+        <div>
+            <div class="contact-label">Phone</div>
+            <div>(425) 352-5000</div>
+        </div>
+    </div>
+
+    <div class="contact-item">
+        <i class="fas fa-envelope contact-icon"></i>
+        <div>
+            <div class="contact-label">Email</div>
+            <div>xyz@uw.edu</div>
+        </div>
+    </div>
+
+    <p>For more information regarding the content on the website, please contact Professor Wooyoung Kim at 1234567890.
+    </p>
+    <p>Please don't send requests for information on graduate programs, employment opportunities, etc., to this address.
+    </p>
+    <p>We don't have that information and such requests will not be answered.</p>
+    <br><br>
+    {% include 'footer/footer.html' %}
+
+</body>
+
+</html>

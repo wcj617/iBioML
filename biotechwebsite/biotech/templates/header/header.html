@@ -1,0 +1,49 @@
+<div class="navbar">
+    <div>
+        {% load static %}
+        <img src="{% static '../static/biotech/images/w-logo-sprite.png' %}" class="wlogo">
+        <img src="{% static '../static/biotech/images/BrandLogoHeader-UWB-white.png' %}" class="uwblogo">
+    </div>
+    <div class="right">
+        <div class="circle">
+            <i class="fa fa-search"></i>
+        </div>
+        <a href="{% url 'loginrender' %}">Login</a>
+    </div>
+</div>
+
+<nav class="main-menus" id="main-menus">
+    <div class="menus-containers">
+        <ul class="menus-nav">
+            <li class="menus-item"><a href="#">ABOUT</a>
+                <i class="fa fa-arrow-down"></i>
+
+
+                <ul class="dropdown">
+                    {% load static %}
+                    <li><a href="{% url 'htmlrender' %}">Home</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="#">Direction</a></li>
+                    <li><a href="#">Mission</a></li>
+                </ul>
+            </li>
+            <li class="menus-item"><a href="#">RESEARCH</a>
+                <i class="fa fa-arrow-down"></i>
+                <ul class="dropdown">
+                    <li><a href="{% url 'projectsrender' %}">Projects</a></li>
+                </ul>
+            </li>
+
+            <li class="menus-item"><a href="#">PEOPLE</a></i>
+                <i class="fa fa-arrow-down"></i>
+                <ul class="dropdown">
+                    <li><a href="./html/core-faculty.html">Core Faculty</a></li>
+                    <li><a href=".html/people-collaborator.html">Collaborator</a></li>
+                </ul>
+            </li>
+            <li class="menus-item"><a href="#">GENE CHAT</a>
+                <i class="fa fa-arrow-down"></i>
+            </li>
+        </ul>
+    </div>
+</nav>

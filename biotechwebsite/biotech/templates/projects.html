@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>iBioML Projects | University of Washington Bothell</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '../static/biotech/index.css' %}">
+</head>
+
+<body>
+
+    {% include 'header/header.html' %}
+
+    <h1>P R O J E C T S</h1>
+
+    <section class="purple-section">
+        <div class="text-container">
+            <h3>NEMOSUITE</h3>
+            <hr>
+            <p>
+                NemoSuite is a web tool for detecting network motifs—frequent, unique subgraph patterns in
+                bioinformatics networks—utilizing network-centric or motif-centric methods. It aids protein interaction
+                prediction, gene identification, and essential protein detection.
+            </p>
+        </div>
+        <div class="image-container">
+            <img src="{% static '../static/biotech/images/proje.jpeg' %}">
+            <button class="view-program-btn"><span class="button-text">VIEW PROGRAM</span></button>
+        </div>
+    </section>
+
+    <section class="purple-section">
+        <div class="text-container">
+            <h3>WEB-QUATEXELERO</h3>
+            <hr>
+            <p>
+                NemoSuite is a web tool for detecting network motifs—frequent, unique subgraph patterns in
+                bioinformatics networks—utilizing network-centric or motif-centric methods. It aids protein interaction
+                prediction, gene identification, and essential protein detection.
+            </p>
+        </div>
+        <div class="image-container">
+            <img src="{% static '../static/biotech/images/pro.jpg' %}">
+            <button class="view-program-btn"><span class="button-text">VIEW PROGRAM</span></button>
+        </div>
+    </section>
+
+    <div style="height: 20vh;"></div>
+
+    {% include 'footer/footer.html' %}
+</body>
+
+</html>
