@@ -8,7 +8,7 @@
         <div class="circle">
             <i class="fa fa-search"></i>
         </div>
-        <a href="{% url 'loginrender' %}">Login</a>
+        <a href="signup/">Login</a>
     </div>
 </div>
 
@@ -18,13 +18,11 @@
             <li class="menus-item"><a href="#">ABOUT</a>
                 <i class="fa fa-arrow-down"></i>
 
-
                 <ul class="dropdown">
                     {% load static %}
                     <li><a href="{% url 'htmlrender' %}">Home</a></li>
                     <li><a href="/contact">Contact</a></li>
-                    <li><a href="#">Direction</a></li>
-                    <li><a href="#">Mission</a></li>
+                    <li><a href="{% url 'missionrender' %}">Mission</a></li>
                 </ul>
             </li>
             <li class="menus-item"><a href="#">RESEARCH</a>
@@ -37,8 +35,8 @@
             <li class="menus-item"><a href="#">PEOPLE</a></i>
                 <i class="fa fa-arrow-down"></i>
                 <ul class="dropdown">
-                    <li><a href="./html/core-faculty.html">Core Faculty</a></li>
-                    <li><a href=".html/people-collaborator.html">Collaborator</a></li>
+                    <li><a href="{% url 'facultyrender' %}">Core Faculty</a></li>
+                    <li><a href="{% url 'collabrender' %}">Collaborator</a></li>
                 </ul>
             </li>
             <li class="menus-item"><a href="#">GENE CHAT</a>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>iBioML Sign-Up | University of Washington Bothell</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '../static/biotech/index.css' %}">
+</head>
+
+<body>
+    {% block content %}
+
+    {% include 'header/header.html' %}
+    <div class="signup-container">
+        {% load static %}
+        <br><br>
+        <h2>SIGN UP</h2>
+        <br><br>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-field">
+                <label for="{{ form.username.id_for_label }}">Username:</label>
+                {{ form.username }}
+            </div>
+            <div class="form-field">
+                <label for="{{ form.password1.id_for_label }}">Password:</label>
+                {{ form.password1 }}
+            </div>
+            <div class="form-field">
+                <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>
+                {{ form.password2 }}
+            </div>
+            <br><br>
+            <div class="button-container">
+                <button type="submit" class="signup-btn">SIGN UP</button>
+            </div>
+            <style>
+                .button-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .signup-btn {
+                    padding: 10px 20px;
+                    background-color: #4b2e83;
+                    color: white;
+                    border: none;
+                    font-size: 14px;
+                    /* font-weight: 600; */
+                    cursor: pointer;
+                    transition: background-color 0.3s, color 0.3s;
+                    /* transform: skewX(-25deg); */
+                }
+            </style>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

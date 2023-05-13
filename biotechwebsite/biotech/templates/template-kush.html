@@ -14,18 +14,21 @@
 
     {% include 'header/header.html' %}
 
-    <h1>B I O I N F O R M A T I C S</h1>
+    <!-- <h1>B I O I N F O R M A T I C S</h1>
+    <br><br> -->
 
-    <section class="homecontent">
+    {% include 'carousel.html' %}
+
+    <!-- <section class="homecontent">
         <h2>{{ content.title }}</h2><br><br>
         {% for paragraph in content.paragraphs %}
         <p>{{ paragraph }}</p><br><br>
         {% endfor %}
-    </section>
+    </section> -->
     <br>
     <section class="purple-section">
         <div class="text-container">
-            <h3>iBioML Projects</h3>
+            <h3>iBIOML PROJECTS</h3>
             <hr>
             <p>
                 Our main research area is pattern recognition in bioinformatics, especially, biological motif analysis.
@@ -46,58 +49,46 @@
         </script>
     </section>
     <br><br><br>
-    <!-- <section class="videolink"> -->
+    <section class="purple-section">
+        <div class="text-container">
+            <h3>GENE CHAT</h3>
+            <hr>
+            <p>
+                Discussion Board for students and collaborators to publish projects and datasets.
+            </p>
+
+        </div>
+
+        <div class="image-container">
+            <img src="../static/biotech/images/genechat.jpeg">
+            <button class="view-program-btn" onclick="viewProjects()"><span class="button-text">GO TO GENE
+                    CHAT</span></button>
+        </div>
+        <script>
+            function viewProjects() {
+                window.location.href = 'projects/'
+            }
+            function viewChat() {
+                window.location.href = '#'
+            }
+            function viewFaculty() {
+                window.location.href = 'faculty/'
+            }
+        </script>
+    </section>
+
+    <br><br><br>
+
     <h2>Watch Our Video To Learn How To Surf On This Website. </h2>
-    <!-- <p style="margin-top: 5%;">Watch the video to learn to surf through the website</p> -->
-    <!-- <iframe width="800" height="450" src="https://www.youtube.com/embed/qEVUtrk8_B4" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-        </iframe> -->
+
     <br><br>
+
     <div class="button-container">
         <button class="button-50" role="button"
             onclick="window.open('https://www.youtube.com/watch?v=qEVUtrk8_B4', '_blank');" target="_blank">
             <span class="button-text">WATCH VIDEO</span>
         </button>
-
-
     </div>
-
-    <style>
-        .button-container {
-            text-align: center;
-        }
-
-        .button-50 {
-            appearance: button;
-            background-color: transparent;
-            background-image: none;
-            border: 1px solid #000;
-            box-shadow: transparent 4px 4px 0 0, #000 4px 4px 0 1px;
-            box-sizing: border-box;
-            color: #fff;
-            cursor: pointer;
-            display: inline-block;
-            font-family: ITCAvantGardeStd-Bk, Arial, sans-serif;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 20px;
-            transform: skewX(-25deg);
-        }
-
-        .button-50:hover {
-            text-decoration: none;
-            background-color: #fff;
-            color: #4b2e83;
-        }
-
-        @media (min-width: 768px) {
-            .button-50 {
-                padding: 12px 50px;
-            }
-        }
-    </style>
     <br><br><br><br>
 
     {% include 'footer/footer.html' %}

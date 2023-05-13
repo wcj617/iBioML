@@ -5,56 +5,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <title>iBioML | University of Washington Bothell</title>
-    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <title>Core Faculty | University of Washington Bothell</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '../static/biotech/index.css' %}">
 </head>
 
 <body>
-    <div class="navbar">
-        <div>
-            <img src="../images/w-logo-sprite.png" class="wlogo">
-            <img src="../images/BrandLogoHeader-UWB-white.png" class="uwblogo">
-        </div>
-        <div class="right">
-            <div class="circle">
-                <i class="fa fa-search"></i>
-            </div>
-            <a href="#">Login</a>
-        </div>
-    </div>
-
-    <nav class="main-menus" id="main-menus">
-        <div class="menus-containers">
-            <ul class="menus-nav">
-                <li class="menus-item"><a href="#">ABOUT</a>
-                    <i class="fa fa-arrow-down"></i>
-
-
-                    <ul class="dropdown">
-                        <li><a href="../templates/html/contact/contact-kush.html">Contact</a></li>
-                        <li><a href="#">Direction</a></li>
-                        <li><a href="#">Mission</a></li>
-                    </ul>
-                </li>
-                <li class="menus-item"><a href="#">RESEARCH</a>
-                    <i class="fa fa-arrow-down"></i>
-                    <ul class="dropdown">
-                        <li><a href="">Projects</a></li>
-                    </ul>
-                </li>
-
-                <li class="menus-item"><a href="#">PEOPLE</a></i>
-                    <i class="fa fa-arrow-down"></i>
-                    <ul class="dropdown">
-                        <li><a href="html/core-faculty.html">Core Faculty</a></li>
-                        <li><a href="html/people-collaborator.html">Collaborator</a></li>
-                    </ul>
-                </li>
-
-                </li>
-            </ul>
-        </div>
-    </nav>
+    {% include 'header/header.html' %}
     <h1>Faculty Directory</h1>
 
     <div class="container">
@@ -236,24 +193,7 @@
         </div>
 
     </div>
-    <footer>
-        <div class="footer-content">
-            <img class="move-right" src="../images/BrandLogoHeader-UWB-white.png" alt="logo">
-            <ul class="socials">
-                <li><a href="https://www.facebook.com/uwbothell%22%3E%22%3E"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="https://twitter.com/UWBothell%22%3E%22%3E"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="https://www.linkedin.com/school/university-of-washington-bothell/%22%3E%22%3E">
-                        <i class="fa fa-linkedin"></i></a></li>
-                <li><a href="https://www.youtube.com/user/uwbothell%22%3E%22%3E"><i class="fa fa-youtube"></i></a>
-                </li>
-                <li><a href="https://www.instagram.com/uw_bothell/%22%3E%22%3E"><i class="fa fa-instagram"></i></a>
-                </li>
-            </ul>
-            <div class="footer-bottom">
-                <p>&copy; Universiy of Washington | Bothell, WA</p>
-            </div>
-        </div>
-    </footer>
+    {% include 'footer/footer.html' %}
 </body>
 
 </html>

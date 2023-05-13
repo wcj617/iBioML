@@ -2,6 +2,28 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from biotech.models import RegisterForm
 
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views import generic
+
+from .forms import CustomUserCreationForm
+
+
+# class SignUpView(generic.CreateView):
+#     form_class = UserCreationForm
+#     success_url = reverse_lazy("login")
+#     template_name = "registration/l-kush.html"
+
+from django.views.generic.edit import CreateView
+from .forms import CustomUserCreationForm
+
+
+class SignUpView(CreateView):
+    form_class = CustomUserCreationForm
+    success_url = reverse_lazy('success')
+    template_name = 'registration/l-kush.html'
+
+
 def htmlrender(request):
     content = {
         'title': 'Welcome to the cutting-edge intersection of computer science and biotechnology at the University of Washington Bothell!',
@@ -12,25 +34,27 @@ def htmlrender(request):
         ]
     }
     return render(request, 'template-kush.html', {'content': content})
-    
+
+
 def projectsrender(request):
-    return render(request, 'projects.html')
+    return render(request, 'projects/projects.html')
+
 
 def loginrender(request):
     return render(request, 'registration/login.html')
 
-def signuprender(request):
-    return render(request, 'registration/sign_up.html')
 
 def contactrender(request):
     return render(request, 'contact/contact-kush.html')
 
-def signup(request):
-    if request.method == 'POST':
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponse('User created')
-    else:
-        form = RegisterForm()
-    return render(request, 'registration/sign_up.html', {'form': form})
+
+def facultyrender(request):
+    return render(request, 'static/people/core-faculty.html')
+
+
+def collabrender(request):
+    return render(request, 'static/people/collab.html')
+
+
+def missionrender(request):
+    return render(request, 'static/mission/mission.html')

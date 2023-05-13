@@ -1,0 +1,79 @@
+{% load static %}
+<input type="radio" id="image1" name="image" checked>
+<input type="radio" id="image2" name="image">
+<input type="radio" id="image3" name="image">
+
+<div class="container">
+    <div class="featured-wrapper">
+        <ul class="featured-list">
+            <li>
+                <figure>
+                    <img src="{% static '../static/biotech/images/c1.png' %}">
+                    <figcaption>
+                        <h3>iBioML</h3>
+                        <h2>BIOINFORMATICS</h2>
+                        <hr>
+                        <p>University of Washington Bothell: Pioneering Advances in Bioinformatics</p>
+                        <p>Bridging Biology, Computer Science, and Information Technology to Drive Innovation and
+                            Discovery in Genomic Research.</p>
+                        <button class="view-program-btn" onclick="viewProjects()"><span class="button-text">VIEW
+                                PROJECTS</span></button>
+                    </figcaption>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="{% static '../static/biotech/images/c2.jpeg' %}">
+                    <figcaption>
+                        <h3>iBioML</h3>
+                        <h2>GENE CHAT</h2>
+                        <hr>
+                        <p>Collaboration is the essence of coding. It's a collective intelligence that turns
+                            individual lines of code into software that changes the world.</p>
+                        <p>A platform to provide answers and code to datasets and questions posted by graduate
+                            students and faculty.</p>
+                        <button class="view-program-btn" onclick="viewChat()"><span class="button-text">GENE
+                                CHAT</span></button>
+                    </figcaption>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="{% static '../static/biotech/images/c3.jpg' %}">
+                    <figcaption>
+                        <h3>iBioML</h3>
+                        <h2>FACULTY</h2>
+                        <hr>
+                        <p>Architects of the future, shaping the minds to innovate</p>
+                        <p>Check out the cutting edge faculty associated with BioInformatics at University of
+                            Washington Bothell.</p>
+                        <button class="view-program-btn" onclick="viewFaculty()"><span class="button-text">GO TO
+                                FACULTY</span></button>
+                    </figcaption>
+                </figure>
+            </li>
+        </ul>
+        <ul class="arrows">
+            <li>
+                <label for="image1"></label>
+            </li>
+            <li>
+                <label for="image2"></label>
+            </li>
+            <li>
+                <label for="image3"></label>
+            </li>
+        </ul>
+        <ul class="dots">
+            <li>
+                <label for="image1"></label>
+            </li>
+            <li>
+                <label for="image2"></label>
+            </li>
+            <li>
+                <label for="image3"></label>
+            </li>
+        </ul>
+    </div>
+</div>
