@@ -8,191 +8,122 @@
     <title>Core Faculty | University of Washington Bothell</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static '../static/biotech/index.css' %}">
+    <style>
+
+        body{
+            margin-bottom: 30px;
+        }
+
+        .people-template {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .people-template ul {
+            display: flex;
+            justify-content: center;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .people-template ul li {
+            position: relative;
+            width: 180px;
+            height: auto;
+            text-align: center;
+            margin-right: 50px;
+        }
+
+        .people-template ul li:last-child {
+            margin-right: 0;
+        }
+
+        .people-template ul li .image-box {
+            position: relative;
+            width: 100%;
+            height: 220px;
+        }
+
+        .people-template ul li img {
+            display: block;
+            width: 180px;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .people-template ul li .people-deet:hover {
+            opacity: 2;
+            background-color: #a18132;
+        }
+
+        .people-template ul li .people-deet {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            color: #ffffff;
+            background: #4b2e83;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            box-sizing: border-box;
+        }
+
+        .people-template ul li h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .people-template ul li .job-title {
+            font-size: 12px;
+        }
+
+        .people-template ul li .people-deet a {
+            color: #ffffff;
+        }
+
+        @media screen and (max-width: 768px) {
+            .people-template ul li {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
     {% include 'header/header.html' %}
     <h1>Faculty Directory</h1>
 
-    <div class="container">
-        <div class="container-background" style="background-color: #f5f5f5">
-            <img src="https://www.uwb.edu/getattachment/css/faculty/wkim.png" alt="Professor Kim"
-                style="margin-right: 10px; margin-bottom: 5px; float: left;">
-            <div>
-                <h3>
-                    <strong> Wooyoung Kim, Ph.D.</strong>
-                    <br>
-                    "Associate Professor"
-                </h3>
-                <p>
-                    Dr. Wooyoung Kim received her Ph.D. in computer science at Georgia State University,
-                    Atlanta, GA., in 2012. She has an M.S. in computer science at Georgia Institute of Technology,
-                    Atlanta, GA.,
-                    and an M.S. and B.S. in mathematics at Yonsei University, Seoul, Korea. She has worked
-                    as a computer programmer and as a researcher in TELSTON, Inc., Seoul, Korea.
-                    She developed various computer-telephony integration systems including CallBank at the company.
-                </p>
-            </div>
-        </div>
-        <div class="container-background" style="display: flex; flex-direction: column">
-            <h3>Research</h3>
-            <p>Dr. Kim's current research interests is in bioinformatics and systems biology, which is, in nature, an
-                interdisciplinary study including not only various areas in computer science (such as machine learning,
-                data mining, numerical analysis, graph theory and pattern recognition), but also various subjects
-                (biology, chemistry, engineering, statistics and physics).
-                Her PhD work was to detect and evaluate biological motifs.
-            </p>
-        </div>
-
-        <div class="container-education-work">
-            <div class="container-education">
-                <h3 style="color: #4b2e84; padding-bottom: 10px;">
-                    Education
-                </h3>
-                <p>
-                    <strong>Georgia State University</strong>
-                    <br>
-                    <em>Alanta, GA</em>
-                </p>
-                <ul>
-                    <li>Ph.D. Computer Science</li>
-                </ul>
-                <p>
-                    <strong>Georgia Institute of Technology</strong>
-                    <br>
-                    <em>Alanta, GA</em>
-                </p>
-                <ul>
-                    <li>M.S. Computer Science</li>
-                </ul>
-                <p>
-                    <strong>Yonsei University</strong>
-                    <br>
-                    <em>Seoul, Korea</em>
-                </p>
-                <ul>
-                    <li>M.S. Mathematics</li>
-                    <li>B.S. Mathematics</li>
-                </ul>
-            </div>
-
-            <div class="container-work">
-                <h3 style="color: #4b2e84; padding-bottom: 10px">
-                    Work Experience
-                </h3>
-                <p>
-                    <strong>University of Washington Bothell</strong>
-                    <br>
-                    <em>Bothell, WA</em>
-                <ul>
-                    <li>Associate Professor</li>
-                    <li>Assistant Professor</li>
-                    <li>Acting Assistant Professor</li>
-                </ul>
-                </p>
-                <p>
-                    <strong>Georgia State University</strong>
-                    <br>
-                    <em>Atlanta, GA</em>
-                <ul>
-                    <li>Graduate Research/Teaching Assistant</li>
-                </ul>
-                </p>
-                <p>
-                    <strong>Georgia Institute of Technology</strong>
-                    <br>
-                    <em>Atlanta, GA</em>
-                <ul>
-                    <li>Graduate Research/Teaching Assistant</li>
-                </ul>
-                </p>
-                <p>
-                    <strong>TELSTON, Inc.,</strong>
-                    <br>
-                    <em>Seoul, Korea</em>
-                <ul>
-                    <li>Junior Researcher</li>
-                    <li>Computer Programmer</li>
-                </ul>
-                </p>
-                <p>
-                    <strong>Yonsei University</strong>
-                    <br>
-                    <em>Seoul, Korea</em>
-                <ul>
-                    <li>Graduate Research</li>
-                    <li>Teaching Assistant, Mathematics</li>
-                </ul>
-                </p>
-            </div>
-        </div>
-
-        <div class="container-services">
-            <h3 style="color: #4b2e84; text-align: center;">
-                Professional Service
-            </h3>
-            <p>
-                <strong>Comittee: Search, UGCC, UGAC</strong>
-                <br>
-                <em>STEM Computation Advisory Committee at STEM, University of Washington Bothell</em>
-            </p>
-            <p>
-                <strong>Program Comittee Member</strong>
-                <br>
-                <em>International Symposium on Bioinformatics Research and Applications (ISBRA)</em>
-            </p>
-            <p>
-                <strong>Reviewer</strong>
-                <br>
-                <em> Neurocomputing</em>
-                <br>
-                <em> BMC Bioinformatics</em>
-                <br>
-                <em>IEEE/ACM Transactions on Computational Biology and Bioinformatics</em>
-                <br>
-                <em>International Symposium on Bioinformatics Research and Applications</em>
-            </p>
-            <p>
-                <strong>Session chair</strong>
-                <br>
-                <em>ISBRA (International Society for Biomedical Research on Alcoholism)</em>
-                <br>
-                <em>IEEE-BIBM (Bioinforamtics and Biomedicine)</em>
-                <em>ACM BCB (Bioinformatics, Computational Bioloby, and Health Informatics)</em>
-            </p>
-        </div>
-
-        <div class="container-award">
-            <h3 style="color: #4b2e84; text-align: center;">
-                Awards
-            </h3>
-            <p>
-                <strong>Student Travel Award</strong>
-                <br>
-                <em>IEEE International Conference on Bioinformatics and Biomedicine</em>
-            </p>
-            <p>
-                <strong>Fellowship</strong>
-                <br>
-                <em>Molecular Basis of Disease (MBD) fellowship</em>
-                <em>Kwanjeong Educational Foundation</em>
-            </p>
-            <p>
-                <strong>Newspaper. Featured in the Kyung-Hyang daily newspaper in an article entitled, "Geniuses of the
-                    N Generation"</strong>
-                <br>
-                <em>Seoul, Korea</em>
-            </p>
-            <p>
-                <strong>Dean's list - Scholarship</strong>
-                <br>
-                <em>Yonsei University, Seoul, Korea</em>
-                <br>
-                <em>Hong San Scholarship, Seoul, Korea</em>
-            </p>
-        </div>
-
+    <div class="people-template mb-30">
+        <ul>
+            <li id="faculty1">
+                <div class="image-box">
+                    <a href="https://www.uwb.edu/stem/faculty/css-faculty/wkim" target="_blank" tabindex="-1"><img
+                            width="200" height="250" src="https://www.uwb.edu/getattachment/css/faculty/wkim.png"
+                            loading="lazy"></a>
+                </div>
+                <div class="people-deet">
+                    <h3><a href="https://www.uwb.edu/stem/faculty/css-faculty/wkim" target="_blank">Wooyoung Kim</a>
+                    </h3>
+                    <p class="job-title">Associate Professor</p>
+                </div>
+            </li>
+            <li id="faculty2">
+                <div class="image-box"> <a href="https://www.uwb.edu/nhs/people/faculty/clee" target="_blank"
+                        tabindex="-1"><img width="200" height="250"
+                            src="https://www.uwb.edu/getattachment/nhs/facultyandstaff/faculty/clee/Chiyoung-Lee-(1).jpg?lang=en-US&width=150&height=185"
+                            loading="lazy"></a></div>
+                <div class="people-deet">
+                    <h3><a href="https://www.uwb.edu/nhs/people/faculty/clee" target="_blank">Chiyoung Lee</a></h3>
+                    <p class="job-title">Assistant Professor</p>
+                </div>
+            </li>
+        </ul>
     </div>
+
     {% include 'footer/footer.html' %}
 </body>
 
