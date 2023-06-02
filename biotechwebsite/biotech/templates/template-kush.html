@@ -58,18 +58,18 @@
 
         <div class="image-container">
             <img src="../static/biotech/images/genechat.jpeg">
-            <button class="view-program-btn" onclick="viewProjects()"><span class="button-text">GO TO GENE
+            <button class="view-program-btn" onclick="viewChat()"><span class="button-text">GO TO GENE
                     CHAT</span></button>
         </div>
         <script>
             function viewProjects() {
-                window.location.href = 'projects/'
+                window.location.href = "{% url 'projectsrender' %}"
             }
             function viewChat() {
-                window.location.href = '#'
+                window.location.href = "{% url 'generender' %}"
             }
             function viewFaculty() {
-                window.location.href = 'faculty/'
+                window.location.href = "{% url 'facultyrender' %}"
             }
         </script>
     </section>
