@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GENE</title>
+</head>
+
+<body>
+    {% block content %}
+    {% load group_filters %}
+
+    <h2>Questions</h2>
+
+    {% if user.is_authenticated %}
+
+    {% if user|is_in_group:"Domain Expert" or user.is_superuser %}
+
+    <p><a href="{% url 'create_question' %}">Post a new question</a></p>
+
+    {% endif %}
+    {% endif %}
+
+    {% for question in questions %}
+    <div>
+        <h3>{{ question.title }}</h3>
+        <p>{{ question.content }}</p>
+
+        {% if user.is_authenticated %}
+        {% if user|is_in_group:"Practitioner" or user.is_superuser %}
+
+        <p><a href="{{ question.file.url }}">Download file</a></p>
+
+        {% endif %}
+        {% endif %}
+
+        <h4>Answers:</h4>
+        {% for answer in question.answer_set.all %}
+        <p>{{ answer.content }}</p>
+
+        {% if user.is_authenticated %}
+        {% if user|is_in_group:"Practitioner" or user.is_superuser %}
+
+        <p><a href="{{ answer.file.url }}">Download file</a></p>
+
+        {% endif %}
+        {% endif %}
+
+        {% empty %}
+
+        <p>No answers yet.</p>
+        {% endfor %}
+
+        {% if user.is_authenticated %}
+        {% if user|is_in_group:"Practitioner" or user.is_superuser %}
+
+        <p><a href="{% url 'create_answer' question_id=question.id %}">Post an answer</a></p>
+
+        {% endif %}
+        {% endif %}
+    </div>
+    {% empty %}
+    <p>No questions yet.</p>
+    {% endfor %}
+    {% endblock %}
+</body>
+
+</html>

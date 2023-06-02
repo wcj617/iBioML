@@ -1,30 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from biotech.models import RegisterForm
-
-from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
-from django.views import generic
-
-from .forms import CustomUserCreationForm
-
-
-# class SignUpView(generic.CreateView):
-#     form_class = UserCreationForm
-#     success_url = reverse_lazy("login")
-#     template_name = "registration/l-kush.html"
-
-from django.views.generic.edit import CreateView
-from .forms import CustomUserCreationForm
+from .forms import QuestionForm, AnswerForm
+from .models import Question, Answer, Student, Practitioner
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
 
 
-class SignUpView(CreateView):
-    form_class = CustomUserCreationForm
-    success_url = reverse_lazy('success')
-    template_name = 'registration/l-kush.html'
-
-
-def htmlrender(request):
+def htmlrender(request, question_id=None):
     content = {
         'title': 'Welcome to the cutting-edge intersection of computer science and biotechnology at the University of Washington Bothell!',
         'paragraphs': [
@@ -40,8 +23,8 @@ def projectsrender(request):
     return render(request, 'projects/projects.html')
 
 
-def loginrender(request):
-    return render(request, 'registration/login.html')
+# def loginrender(request):
+#     return render(request, 'registration/login.html')
 
 
 def contactrender(request):
@@ -58,3 +41,43 @@ def collabrender(request):
 
 def missionrender(request):
     return render(request, 'static/mission/mission.html')
+
+
+def generender(request):
+    questions = Question.objects.all()
+    return render(request, 'gene-chat.html', {'questions': questions})
+
+
+def question_create_view(request):
+    if request.method == 'POST':
+        form = QuestionForm(request.POST, request.FILES)
+        if form.is_valid():
+            # if request.user.is_authenticated:
+            #     question.created_by = request.user
+            # else:
+            #     return redirect('htmlrender')
+            question = form.save(commit=False)
+            question.created_by = request.user
+            question.save()
+            return redirect('generender')
+    else:
+        form = QuestionForm()
+    return render(request, 'create_question.html', {'form': form})
+
+
+def answer_create_view(request, question_id):
+    question = Question.objects.get(id=question_id)
+    if question.answer_set.exists():
+        messages.info(request, "An answer already exists for this question.")
+        return redirect('htmlrender', question_id=question_id)
+    if request.method == 'POST':
+        form = AnswerForm(request.POST, request.FILES)
+        if form.is_valid():
+            answer = form.save(commit=False)
+            answer.created_by = request.user
+            answer.question = question
+            answer.save()
+            return redirect('htmlrender', question_id=question_id)
+    else:
+        form = AnswerForm()
+    return render(request, 'create_answer.html', {'form': form})

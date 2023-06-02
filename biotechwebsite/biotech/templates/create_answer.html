@@ -5,16 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Create Answer</title>
 </head>
 
 <body>
-    <h2>Log In</h2>
-    <form method="post">
+    {% block content %}
+    <h2>Post an answer</h2>
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Log In</button>
+        <button type="submit">Post answer</button>
     </form>
+    {% endblock %}
 </body>
 
 </html>

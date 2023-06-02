@@ -5,12 +5,28 @@
         <img src="{% static '../static/biotech/images/BrandLogoHeader-UWB-white.png' %}" class="uwblogo">
     </div>
     <div class="right">
+        {% if user.is_authenticated %}
         <div class="circle">
             <i class="fa fa-search"></i>
         </div>
-        <a href="signup/">Login</a>
+        <a href="{% url 'logout' %}">Logout</a>
+        <span class="username-greeting">Hi {{ user.username }}!</span>
+        {% else %}
+        <div class="circle">
+            <i class="fa fa-search"></i>
+        </div>
+        <a href="{% url 'login' %}">Login</a>
+        {% endif %}
     </div>
 </div>
+
+<style>
+    .username-greeting {
+        color: white;
+        font-family: Encode Sans Compressed;
+        font-size: 20px;
+    }
+</style>
 
 <nav class="main-menus" id="main-menus">
     <div class="menus-containers">
@@ -36,10 +52,10 @@
                 <i class="fa fa-arrow-down"></i>
                 <ul class="dropdown">
                     <li><a href="{% url 'facultyrender' %}">Core Faculty</a></li>
-                    <li><a href="{% url 'collabrender' %}">Collaborator</a></li>
+                    <!-- <li><a href="{% url 'collabrender' %}">Collaborator</a></li> -->
                 </ul>
             </li>
-            <li class="menus-item"><a href="#">GENE CHAT</a>
+            <li class="menus-item"><a href="{% url 'generender' %}">GENE CHAT</a>
                 <i class="fa fa-arrow-down"></i>
             </li>
         </ul>

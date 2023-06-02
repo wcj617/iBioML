@@ -1,40 +1,28 @@
 from django.db import models
-from django import forms
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.core.validators import validate_email
-from django.core.exceptions import ValidationError
-
-# Create your models here.
-class Example(models.Model):
-    coursename = models.CharField(max_length=10)
-    major = models.CharField(max_length=20)
-
-class RegisterForm(UserCreationForm):
-    email = forms.EmailField(required=True)
-    first_name = forms.CharField(required=True)
-    last_name = forms.CharField(required=True)
-    stuff = forms.BooleanField(required=False)
-
-    class Meta:
-        model = User
-        fields = ['first_name', 'last_name', 'stuff', 'username', 'email', 'password1', 'password2']
-
-    def clean_email(self):
-        email = self.cleaned_data['email']
-        try:
-            validate_email(email)
-        except ValidationError:
-            raise forms.ValidationError('Invalid email format')
-        return email
 
 
-class LoginForm(forms.Form):
-    username = forms.CharField(max_length=30)
-    password = forms.CharField(widget=forms.PasswordInput)
+class Question(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    file = models.FileField(upload_to='questions_files/')
+    posted_at = models.DateTimeField(auto_now_add=True)
 
 
-class SearchForm(forms.Form):
-    Search = forms.CharField(max_length=100)
+class Answer(models.Model):
+    content = models.TextField()
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    file = models.FileField(upload_to='answers_files/')
+    posted_at = models.DateTimeField(auto_now_add=True)
 
 
+class Student(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    registration_code = models.CharField(max_length=30)
+
+
+class Practitioner(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    registration_code = models.CharField(max_length=30)
