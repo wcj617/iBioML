@@ -23,6 +23,9 @@
     {% endif %}
     {% endif %}
 
+    <p>x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-</p>
+
+
     {% for question in questions %}
     <div>
         <h3>{{ question.title }}</h3>
@@ -50,8 +53,7 @@
 
         {% empty %}
 
-        <p>No answers yet.</p>
-        {% endfor %}
+        <!-- <p>No answers yet.</p> -->
 
         {% if user.is_authenticated %}
         {% if user|is_in_group:"Practitioner" or user.is_superuser %}
@@ -60,7 +62,12 @@
 
         {% endif %}
         {% endif %}
+
+        {% endfor %}
+
     </div>
+    <p>x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-</p>
+
     {% empty %}
     <p>No questions yet.</p>
     {% endfor %}

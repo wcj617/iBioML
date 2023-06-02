@@ -1,10 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.urls import reverse_lazy
-from .forms import QuestionForm, AnswerForm
-from .models import Question, Answer, Student, Practitioner
-from django.contrib.auth import authenticate, login
-from django.contrib import messages
+from .forms import Question, Answer, QuestionForm, AnswerForm
+from .models import Question, Answer, QuestionFile, AnswerFile
 
 
 def htmlrender(request, question_id=None):
@@ -52,13 +50,13 @@ def question_create_view(request):
     if request.method == 'POST':
         form = QuestionForm(request.POST, request.FILES)
         if form.is_valid():
-            # if request.user.is_authenticated:
-            #     question.created_by = request.user
-            # else:
-            #     return redirect('htmlrender')
             question = form.save(commit=False)
             question.created_by = request.user
             question.save()
+
+            for f in request.FILES.getlist('file_field'):
+                QuestionFile.objects.create(file=f, question=question)
+
             return redirect('generender')
     else:
         form = QuestionForm()
@@ -67,9 +65,6 @@ def question_create_view(request):
 
 def answer_create_view(request, question_id):
     question = Question.objects.get(id=question_id)
-    if question.answer_set.exists():
-        messages.info(request, "An answer already exists for this question.")
-        return redirect('htmlrender', question_id=question_id)
     if request.method == 'POST':
         form = AnswerForm(request.POST, request.FILES)
         if form.is_valid():
@@ -77,6 +72,10 @@ def answer_create_view(request, question_id):
             answer.created_by = request.user
             answer.question = question
             answer.save()
+
+            for f in request.FILES.getlist('file_field'):
+                AnswerFile.objects.create(file=f, answer=answer)
+
             return redirect('htmlrender', question_id=question_id)
     else:
         form = AnswerForm()

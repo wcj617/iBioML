@@ -9,8 +9,7 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static '../static/biotech/index.css' %}">
     <style>
-
-        body{
+        body {
             margin-bottom: 30px;
         }
 
@@ -95,8 +94,8 @@
 
 <body>
     {% include 'header/header.html' %}
-    <h1>Faculty Directory</h1>
-
+    <h1>FACULTY DIRECTORY</h1>
+    <div style="padding-top: 50px;"></div>
     <div class="people-template mb-30">
         <ul>
             <li id="faculty1">
@@ -121,8 +120,18 @@
                     <p class="job-title">Assistant Professor</p>
                 </div>
             </li>
+            <li id="faculty3">
+                <div class="image-box"> <a href="https://www.uwb.edu/nhs/people/faculty/clee" target="_blank"
+                        tabindex="-1"><img width="200" height="250"
+                            src="{% static '../static/biotech/images/IMG_Kush.jpeg' %}" loading="lazy"></a></div>
+                <div class="people-deet">
+                    <h3><a href="https://www.uwb.edu/nhs/people/faculty/clee" target="_blank">Kush Chopra</a></h3>
+                    <p class="job-title">Lead Developer</p>
+                </div>
+            </li>
         </ul>
     </div>
+    <div style="padding-top: 400px;"></div>
 
     {% include 'footer/footer.html' %}
 </body>
