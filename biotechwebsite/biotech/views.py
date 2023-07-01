@@ -52,6 +52,7 @@ def question_create_view(request):
         if form.is_valid():
             question = form.save(commit=False)
             question.created_by = request.user
+            # question.given_to = request.user
             question.save()
 
             for f in request.FILES.getlist('file_field'):

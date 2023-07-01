@@ -57,6 +57,7 @@
 
         {% if user.is_authenticated %}
         {% if user|is_in_group:"Practitioner" or user.is_superuser %}
+        <!-- {% if user.username == question.given_to} -->
 
         <p><a href="{% url 'create_answer' question_id=question.id %}">Post an answer</a></p>
 

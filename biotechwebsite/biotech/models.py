@@ -5,7 +5,10 @@ from django.contrib.auth.models import User
 class Question(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='created_questions')
+    given_to = models.ForeignKey(
+        User, unique=False, on_delete=models.CASCADE, related_name='received_questions', null=True)
     posted_at = models.DateTimeField(auto_now_add=True)
 
 
