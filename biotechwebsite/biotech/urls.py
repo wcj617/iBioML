@@ -24,4 +24,8 @@ urlpatterns = [
 
     path('genechat/', views.generender, name='generender'),
 
+    path('profile/', views.profilerender, name='profilerender'),
+
+    path('signup/', views.RegisterView.as_view(), name='users-register')
+
 ]

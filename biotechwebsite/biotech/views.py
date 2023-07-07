@@ -3,6 +3,11 @@ from django.http import HttpResponse
 from django.urls import reverse_lazy
 from .forms import Question, Answer, QuestionForm, AnswerForm
 from .models import Question, Answer, QuestionFile, AnswerFile
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.views import View
+
+from .forms import RegisterForm
 
 
 def htmlrender(request, question_id=None):
@@ -81,3 +86,31 @@ def answer_create_view(request, question_id):
     else:
         form = AnswerForm()
     return render(request, 'create_answer.html', {'form': form})
+
+
+@login_required
+def profilerender(request):
+    return render(request, 'profile/profile.html')
+
+
+class RegisterView(View):
+    form_class = RegisterForm
+    initial = {'key': 'value'}
+    template_name = 'registration/signup.html'
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(initial=self.initial)
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}')
+
+            return redirect(to='/')
+
+        return render(request, self.template_name, {'form': form})
