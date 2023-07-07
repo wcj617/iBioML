@@ -5,10 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GENE</title>
+    <title>iBioML Gene Chat | University of Washington Bothell</title>
+    <!-- {% load static %} -->
+    <!-- <link rel="stylesheet" type="text/css" href="{% static '../static/biotech/index.css' %}"> -->
 </head>
 
 <body>
+    <!-- {% include 'header/header.html' %} -->
+
+    <!-- <h1>G E N E C H A T</h1> -->
+
     {% block content %}
     {% load group_filters %}
 
@@ -18,7 +24,7 @@
 
     {% if user|is_in_group:"Domain Expert" or user.is_superuser %}
 
-    <p><a href="{% url 'create_question' %}">Post a new question</a></p>
+    <p><a href="{% url 'create_question' %}">Post a new project</a></p>
 
     {% endif %}
     {% endif %}
@@ -73,6 +79,10 @@
     <p>No questions yet.</p>
     {% endfor %}
     {% endblock %}
+
+    <!-- <div style="height: 20vh;"></div> -->
+
+    <!-- {% include 'footer/footer.html' %} -->
 </body>
 
 </html>
