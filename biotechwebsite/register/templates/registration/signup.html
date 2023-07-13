@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+
+<body>
+    {% block content %}
+    {% if messages %}
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        {% if form.errors %}
+        {% for key, value in form.errors.items %}
+        <strong>{{ value }}</strong>
+        {% endfor %}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {% endif %}
+
+        <div class="form-row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="small mb-1">First Name</label>
+                    {{ form.first_name }}
+                </div>
+            </div>
+            <br>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="small mb-1">Last Name</label>
+                    {{ form.last_name }}
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="small mb-1">Username</label>
+                    {{ form.username }}
+                </div>
+            </div>
+            <br>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="small mb-1">Email</label>
+                    {{ form.email }}
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="form-row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="small mb-1">Password</label>
+                    {{ form.password1 }}
+                    {{ form.errors.password }}
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <label class="small mb-1">Confirm Password</label>
+                    {{ form.password2 }}
+                </div>
+            </div>
+        </div>
+        <p><strong>Domain Expert:</strong> Publishes the project, proposal, datasets, etc. Usually a graduate or a
+            professor.</p>
+        <p><strong>Practitioner</strong> Publishes the project solution. Usually a student.</p>
+        <br>
+        <br>
+        <p><strong>Choose a role wisely</strong></p>
+        <label>Role</label>
+        {{form.role}}
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <button type="submit">Sign Up</button><br><br>
+    </form>
+    {% endblock content %}
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- A plugin for password show/hide  -->
+    <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+</body>
+
+</html>

@@ -26,6 +26,6 @@ urlpatterns = [
 
     path('profile/', views.profilerender, name='profilerender'),
 
-    path('signup/', views.RegisterView.as_view(), name='users-register')
+    # path('signup/', views.RegisterView.as_view(), name='users-register')
 
 ]
