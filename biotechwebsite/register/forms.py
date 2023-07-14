@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth.models import User
-
+from django.contrib.auth.models import User, Group
+from allauth.socialaccount.forms import SignupForm
 
 class RegisterForm(UserCreationForm):
     first_name = forms.CharField(max_length=100,
@@ -51,6 +51,19 @@ class RegisterForm(UserCreationForm):
         fields = ['first_name', 'last_name', 'username',
                   'email', 'password1', 'password2', 'role']
 
+    def save(self, commit=True):
+        user = super().save(commit=False)
+
+        if commit:
+            user.save()
+
+            # Assign the user to the chosen group.
+            group_name = self.cleaned_data.get(
+                'role').replace('_', ' ').title()
+            group = Group.objects.get(name=group_name)
+            user.groups.add(group)
+
+        return user
 
 
 class LoginForm(AuthenticationForm):
@@ -72,3 +85,30 @@ class LoginForm(AuthenticationForm):
     class Meta:
         model = User
         fields = ['username', 'password', 'remember_me']
+
+
+class MyCustomSocialSignupForm(SignupForm):
+
+    ROLE_CHOICES = [
+        ('domain_expert', 'Domain Expert'),
+        ('practitioner', 'Practitioner'),
+    ]
+    role = forms.ChoiceField(
+    choices=ROLE_CHOICES, widget=forms.Select(attrs={'class': 'class-name'}))
+    #
+    def save(self, request):
+
+        # Ensure you call parent class's save
+        # .save() returns a User object
+
+        user = super(MyCustomSocialSignupForm, self).save(request)
+        print(request)
+        # Add your own processing here
+        user.role = self.cleaned_data['role']
+        # You must return the original result
+        user.save()
+        group_name = self.cleaned_data.get('role').replace('_', ' ').title()
+        group = Group.objects.get(name=group_name)
+        user.groups.add(group)
+        return user
+

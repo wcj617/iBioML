@@ -51,7 +51,13 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.openid',
     'django.contrib.sites',
 ]
+SOCIALACCOUNT_AUTO_SIGNUP = False
+# I am not sure this is the right to implement.
 
+SOCIALACCOUNT_FORMS = {
+    'disconnect': 'allauth.socialaccount.forms.DisconnectForm',
+    'signup': 'register.forms.MyCustomSocialSignupForm',
+}
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'SCOPE': [
