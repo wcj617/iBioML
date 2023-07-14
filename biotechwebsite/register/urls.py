@@ -11,5 +11,5 @@ urlpatterns = [
     # I think this cause the issues
     path('logout/', auth_views.LogoutView.as_view(template_name='registration/logout.html'), name='logout'),
 
-    path('accounts/', include('allauth.urls')),
+    path('', include('allauth.urls')),
 ]
