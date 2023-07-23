@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User, Group
 from allauth.socialaccount.forms import SignupForm
 
+
 class RegisterForm(UserCreationForm):
     first_name = forms.CharField(max_length=100,
                                  required=True,
@@ -88,16 +89,15 @@ class LoginForm(AuthenticationForm):
 
 
 class MyCustomSocialSignupForm(SignupForm):
-
     ROLE_CHOICES = [
         ('domain_expert', 'Domain Expert'),
         ('practitioner', 'Practitioner'),
     ]
     role = forms.ChoiceField(
-    choices=ROLE_CHOICES, widget=forms.Select(attrs={'class': 'class-name'}))
+        choices=ROLE_CHOICES, widget=forms.Select(attrs={'class': 'class-name'}))
+
     #
     def save(self, request):
-
         # Ensure you call parent class's save
         # .save() returns a User object
 
@@ -112,3 +112,9 @@ class MyCustomSocialSignupForm(SignupForm):
         user.groups.add(group)
         return user
 
+
+class InvitationAcceptanceForm(forms.Form):
+    invitation_accepted = forms.BooleanField(
+        required=False,
+        label='Accept Invitation',
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}))

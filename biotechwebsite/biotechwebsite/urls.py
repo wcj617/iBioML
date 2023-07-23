@@ -20,7 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('biotech.urls')),
     path('', include('register.urls')),
-    # path('', include('allauth.urls')),
+
     # Maybe later, I will delete below line of code. it is duplicated
     path('', include('django.contrib.auth.urls')),
 ]

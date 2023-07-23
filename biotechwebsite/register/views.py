@@ -8,7 +8,10 @@ from django.views import View
 
 from django.contrib.auth.views import LoginView
 
-from .forms import RegisterForm, LoginForm
+from .forms import RegisterForm, LoginForm, InvitationAcceptanceForm
+
+from django.http import JsonResponse
+from allauth.account.adapter import get_adapter
 
 
 class RegisterView(View):
@@ -23,6 +26,7 @@ class RegisterView(View):
 
         # else process dispatch as it otherwise normally would
         return super(RegisterView, self).dispatch(request, *args, **kwargs)
+
     def get(self, request, *args, **kwargs):
         form = self.form_class(initial=self.initial)
         return render(request, self.template_name, {'form': form})
@@ -57,3 +61,23 @@ class CustomLoginView(LoginView):
 
         # else browser session will be as long as the session cookie time "SESSION_COOKIE_AGE" defined in settings.py
         return super(CustomLoginView, self).form_valid(form)
+
+
+def accept_invitation(request):
+    adapter = get_adapter(request)
+    is_open = adapter.is_open_for_signup(request)
+    return JsonResponse({'is_open': is_open})
+    # if request.method == 'POST':
+    #     form = InvitationAcceptanceForm(request.POST)
+    #     if form.is_valid():
+    #         if form.cleaned_data['invitation_accepted']:
+    #             request.session['invitation_accepted'] = True
+    #             messages.success(request, "invitation accepted successfully")
+    #         else:
+    #             request.session['invitation_accepted'] = False
+    #             messages.error(request, "invitation rejected")
+    #         #   I am not too sure where I should redirect here. I will set it later
+    #         return redirect(to='/')
+    # else:
+    #     form = InvitationAcceptanceForm()
+    # return render(request, 'accept_invitation.html', {'form': form})
