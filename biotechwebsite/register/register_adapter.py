@@ -1,7 +1,5 @@
 from django.conf import settings
 from allauth.account.adapter import DefaultAccountAdapter
-from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
-import pdb
 
 
 class RegisterInvitationAdapter(DefaultAccountAdapter):
@@ -12,4 +10,11 @@ class RegisterInvitationAdapter(DefaultAccountAdapter):
         # if invitation_accepted is True:
         #     return True
         # else:
-        return False
+        # domain-expert1@gmail.com
+        # www.localhost.com/signup?token=askdjflskjjn12387iush8123123d&email=domain-expert1@gmail.com
+        # token = get_token_param(request.url)
+        # email = validate_token(token)
+
+        # A (app) <- POST /monitoring/<uuid> {fraud detected} HTTP (subscriber pattern) B (monitoring) fraud login 
+         # C
+        return True

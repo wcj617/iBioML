@@ -11,10 +11,11 @@ from django.contrib.auth.views import LoginView
 from .forms import RegisterForm, LoginForm, InvitationAcceptanceForm
 
 from django.http import JsonResponse
-from allauth.account.adapter import get_adapter
+
+from allauth.account.views import SignupView 
 
 
-class RegisterView(View):
+class RegisterView(SignupView):
     form_class = RegisterForm
     initial = {'key': 'value'}
     template_name = 'registration/signup.html'
@@ -63,10 +64,6 @@ class CustomLoginView(LoginView):
         return super(CustomLoginView, self).form_valid(form)
 
 
-def accept_invitation(request):
-    adapter = get_adapter(request)
-    is_open = adapter.is_open_for_signup(request)
-    return JsonResponse({'is_open': is_open})
     # if request.method == 'POST':
     #     form = InvitationAcceptanceForm(request.POST)
     #     if form.is_valid():

@@ -1,10 +1,11 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User, Group
-from allauth.socialaccount.forms import SignupForm
+from allauth.account.forms import SignupForm
+from allauth.socialaccount.forms import SignupForm as SocialSignupForm
 
 
-class RegisterForm(UserCreationForm):
+class RegisterForm(SignupForm):
     first_name = forms.CharField(max_length=100,
                                  required=True,
                                  widget=forms.TextInput(attrs={'placeholder': 'First Name',
@@ -88,7 +89,7 @@ class LoginForm(AuthenticationForm):
         fields = ['username', 'password', 'remember_me']
 
 
-class MyCustomSocialSignupForm(SignupForm):
+class MyCustomSocialSignupForm(SocialSignupForm):
     ROLE_CHOICES = [
         ('domain_expert', 'Domain Expert'),
         ('practitioner', 'Practitioner'),

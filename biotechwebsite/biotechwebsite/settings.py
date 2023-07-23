@@ -11,10 +11,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
-import environ
-
-env = environ.Env()
-environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -64,6 +60,7 @@ ACCOUNT_FORMS = {
     # I am unsure I named 'invitations' right.. will it use later to pass something?
     # 'invitations' : 'register.forms.InvitationAcceptanceForm',
     #     since I am not overriding form from allauth, I don't need this.
+    'signup': 'register.forms.RegisterForm',
 }
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
@@ -180,8 +177,6 @@ SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')  # Your Gmail address
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')  # Your Gmail password or an app-specific password
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
